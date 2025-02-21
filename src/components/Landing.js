@@ -1,15 +1,17 @@
+import React from "react";
 
-function Landing() 
-{
-return(<>
-<div className='content'>
-          <h2>Welcome to Auction App</h2>
-          <p>
-          An auction is usually a process of buying and selling goods or services by offering them up for bids, taking bids, and then selling the item to the highest bidder or buying the item from the lowest bidder. Some exceptions to this definition exist and are described in the section about different types.
-          </p>
-          </div>
-          </>
-)
-}
+const Landing = () => {
+  return (
+    <div>
+      <header className="hero">
+        <div className="overlay">
+          <h1 className="text-white fw-bold display-4">🏆 Welcome to Auction App</h1>
+          <p className="text-white lead">Bid, Win, and Sell Items in Real-Time</p>
+          <a href="/signup" className="btn btn-light btn-lg mt-3">Join Now</a>
+        </div>
+      </header>
+    </div>
+  );
+};
 
-export default Landing
+export default Landing;

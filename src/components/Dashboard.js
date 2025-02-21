@@ -34,7 +34,7 @@ function Dashboard() {
     <div>
       <h2>Auction Dashboard</h2>
 
-      {/* 🔹 Logout Button 
+      { /*🔹 Logout Button 
       <button onClick={handleLogout} style={{ marginLeft: '10px', background: 'red', color: 'white' }}>
         Logout
       </button>*/}

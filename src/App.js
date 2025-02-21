@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
+import "./styles/App.css";
 import Signup from './components/Signup';
 import Signin from './components/Signin';
 import Dashboard from './components/Dashboard';
@@ -8,6 +9,10 @@ import AuctionItem from './components/AuctionItem';
 import PostAuction from './components/PostAuction';
 import Landing from './components/Landing';
 import './App.css';
+import About from './components/About';
+import Contact from './components/Contact';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
   //isAuthenticated is the state, setIsAuthenticated changes the state
@@ -28,36 +33,28 @@ function App() {
 
   return (
     <Router>
-      <div className="app">
-        <header>
-          <h1>Auction App</h1>
-          <nav>
-            <Link to="/signup" className="nav-link">Signup</Link>
-            <Link to="/signin" className="nav-link">Signin</Link>
-            <Link to="/dashboard" className="nav-link">Dashboard</Link>
-            <Link to="/post-auction" className="nav-link">Post Auction</Link>
-            {isAuthenticated && (
-              <button style={{ marginLeft: '10px', background: 'red', color: 'white' }} onClick={handleLogout} className="nav-link logout-button">Logout</button>
-            )}
-          </nav>
-        </header>
-        <main>
+    <div className="app">
+      
+      <Navbar isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
+      
+        
+        
+        <main className="container mt-4">
           <Routes>
-           <Route path="/" element={<Landing/>} />
+           <Route path="/home" element={<Landing/>} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/signin" element={<Signin />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/auction/:id" element={<AuctionItem />} />
             <Route path="/post-auction" element={<PostAuction />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
           
         </main>
-        <footer>
-          <p>&copy; 2024 Auction App. All rights reserved.</p>
-          <p>Welcome to the best place to buy and sell items through auctions!</p>
-        </footer>
+        <Footer />
       </div>
-    </Router>
+     </Router>
   );
 }
 
